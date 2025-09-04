@@ -14,9 +14,14 @@ jobs:
       extensions: pdo_mysql, bcmath, fileinfo, mbstring
 
    - name: install vendor
-     run: composer install --prefer-dist --no-interaction 
+     run: composer install --prefer-dist --no-interaction
+
+   - name: copy .env
+     run: cp .env.example .env   
+
    - name: create app key
      run: php artisan key:generate
+     
    - name: run tests
      run: php artisan test  
           
