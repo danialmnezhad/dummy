@@ -14,7 +14,7 @@ jobs:
       extensions: pdo_mysql, bcmath, fileinfo, mbstring
 
    - name: install vendor
-     run: composer install --prefer-dist --no-interaction --no-dev
+     run: composer install --prefer-dist --no-dev
 
    - name: run tests
      run: php artisan test  
