@@ -1,0 +1,21 @@
+name: some workflow
+on: [push]
+jobs:
+ test:
+  runs-on: ubuntu-latest
+  steps:
+   - name: checkout code
+     uses: actions/checkout@v4
+
+   - name: setup php
+     uses: shivammathur/setup-php@v2
+     with:
+      php-version: '8.2'
+      extensions: pdo_mysql, bcmath, fileinfo, mbstring
+
+   - name: install vendor
+     run: composer install --prefer-dist --no-interaction --no-dev
+
+   - name: run tests
+     run: php artisan test  
+          
