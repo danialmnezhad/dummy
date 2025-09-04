@@ -15,7 +15,8 @@ jobs:
 
    - name: install vendor
      run: composer install --prefer-dist --no-interaction 
-
+   - name: create app key
+     run: php artisan key:generate
    - name: run tests
      run: php artisan test  
           
